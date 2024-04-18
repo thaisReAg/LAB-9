@@ -1,10 +1,16 @@
 class Chronometer {
   constructor() {
-    // ... your code goes here
+    // Añadimos dos propiedades:
+    this.currentTime = 0;  // current time in milliseconds, ponemos this para añadir una propiedad a una clase
+    this.intervalId = null;  
   }
 
   start(callback) {
-    // ... your code goes here
+    if (!this.intervalId) {
+      this.intervalId = setInterval(() => {
+        // Código para ejecutar en cada intervalo
+      }, 1000);
+    }
   }
 
   getMinutes() {
