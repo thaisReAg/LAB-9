@@ -9,7 +9,7 @@ class Chronometer {
     // Dentro de la función pasada a setInterval
     this.intervalId = setInterval(() => {
       this.currentTime++; // Incrementamos el valor de currentTime en 1
-      console.log('Contador: ' + this.currentTime); // Imprimimos el valor actual del contador, esta linea es opcional
+      // console.log('Contador: ' + this.currentTime); // Imprimimos el valor actual del contador, esta linea es opcional
       if (callback) {
         callback(); // Ejecutamos el callback si se proporciona
       }
@@ -21,7 +21,7 @@ class Chronometer {
   }
 
   getSeconds() {
-    return getMinutes() % 60; // el Math.floor no se pone porque se supone que el numero ya me lo daran redondeado y no se pone this.getMinutes() porque esta llamando a la función anterior y no a una propiedad
+    return this.currentTime % 60;
   }
 
   computeTwoDigitNumber(value) {
@@ -46,17 +46,17 @@ class Chronometer {
   }
 
   reset() {
-    this.stop(); // Detener el cronómetro si está en ejecución
+    this.stop();  //Detener el cronómetro si está en ejecución
     this.currentTime = 0; // Restablecer currentTime a 0
 
-    /* No es necesario actualizar los valores en el HTML, ya que están inicializados en 0, pero si fuese necesario se puede añadir lo siguiente:
+    /*
     document.getElementById('minDec').innerHTML = '0'; // Actualizar minDec en el HTML
     document.getElementById('minUni').innerHTML = '0'; // Actualizar minUni en el HTML
     document.getElementById('milDec').innerHTML = '0'; // Actualizar milDec en el HTML
-    document.getElementById('milUni').innerHTML = '0'; // Actualizar milUni en el HTML */
+    document.getElementById('milUni').innerHTML = '0'; // Actualizar milUni en el HTML 
+     No es necesario actualizar los valores en el HTML, ya que están inicializados en 0, pero si fuese necesario se puede añadir lo siguiente:
+    */
   }
-
-
 
   split() {
     return (
